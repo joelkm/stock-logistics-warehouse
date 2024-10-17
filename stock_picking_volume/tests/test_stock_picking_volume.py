@@ -191,3 +191,6 @@ class TestStockPickingVolume(TransactionCase):
         self.assertEqual(
             self.product._get_volume_for_qty(5 * from_uom.factor, from_uom), 750
         )
+
+    def test_deliveryslip_report(self):
+        res = self.env["ir.action.report"]._render("stock_picking_volume.report", self.picking.id, context={})
